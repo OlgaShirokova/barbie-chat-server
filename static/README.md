@@ -1,2 +1,2 @@
-# barbie-chat-client
-Barbie Chat Client
+# barbie-chat-server
+Barbie Chat Server
