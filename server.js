@@ -23,9 +23,9 @@ var server = http.createServer(function (req, res) {
         req.on('data', function(chunk) {
           body.push(chunk);
         }).on('end', function() {
-          body = Buffer.concat(body).toString();
+          body = JSON.parse(Buffer.concat(body).toString());
           console.log('body: ', body);
-          db.msgs.push({"content": body});
+          db.msgs.push(body);
           // db.msgs.push(JSON.parse(body));
           // response.end();
         });

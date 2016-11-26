@@ -43,11 +43,16 @@ $(function () {
 		$.ajax({
 			method: 'POST',
 			url: '/userMsgs',
-			data: newMsg,
+			data: JSON.stringify({
+				user: 'user1',
+				content: newMsg,
+				timestamp: Date.now()
+			}),
 			success: function (data) {
 				renderQuote(data);
 			},
-			dataType: 'json'
+			dataType: 'json',
+			contentType: 'application/json'
 		});
 
 		$.ajax({
