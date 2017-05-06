@@ -17,12 +17,13 @@ setInterval(function () {
 var server = http.createServer(function (req, res) {
     console.log('req ', req.url);
 
-    if (req.url === '/userMsgs') {
+    if (req.url === '/messages') {
       if (req.method === 'POST') {
         var body = [];
         req.on('data', function(chunk) {
           body.push(chunk);
         }).on('end', function() {
+          console.log('---------------', body);
           body = JSON.parse(Buffer.concat(body).toString());
           console.log('body: ', body);
           db.msgs.push(body);

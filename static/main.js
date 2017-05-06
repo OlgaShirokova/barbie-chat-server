@@ -18,6 +18,8 @@ $(function () {
 		url: '/messages',
 		success: function (msgs) {
 			msgs.forEach(function (msg) {
+				console.log('msgs: ', msgs);
+				console.log('msg: ', msg);
 				renderQuote(msg);
 			});
 		}
@@ -42,7 +44,7 @@ $(function () {
 
 		$.ajax({
 			method: 'POST',
-			url: '/userMsgs',
+			url: '/messages',
 			data: JSON.stringify({
 				user: 'user1',
 				content: newMsg,
@@ -79,8 +81,8 @@ $(function () {
 
 	$('#delete').click(function() {
 		$.ajax({
-			method: 'POST',
-			url: '/deleteMsgs',
+			method: 'DELETE',
+			url: '/messages',
 			data: '',
 			success: function (data) {
 			},
